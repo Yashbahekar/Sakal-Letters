@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head', { title: 'All Posts' }) %>
+    <link rel="stylesheet" href="/styles/letters.css" />
+  </head>
+
+  <body>
+    <%- include('includes/header') %>
+
+    <main id="all-posts">
+      <!-- <h1>All Letters</h1> -->
+
+      <div>
+        <table class="table">
+      <h2>Letters</h2>
+
+          <thead>
+            <th>Location</th>
+            <th>Office Name</th>
+            <th>Person Name</th>
+            <th>Date & time</th>
+            <th>Receiver name</th>
+          </thead>
+          <tbody>
+            <% for(const letter of letters) { %>
+            <tr>
+              <td data-label="Location"><%= letter.Location %></td>
+              <td data-label="Name"><%= letter.Office_name %></td>
+              <td data-label="Name"><%= letter.Person_name %></td>
+              <td data-label="Name"><%= letter.Date_time %></td>
+              <td data-label="Name"><%= letter.Emp_name %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head', { title: 'Add new post' }) %>
+    <link rel="stylesheet" href="/styles/forms.css" />
+  </head>
+
+  <body>
+    <%- include('includes/header') %>
+    <main>
+      <h1>Add a new Letter</h1>
+      <form action="/letters" method="POST">
+        <!-- here POST - is used when to store the data in a file or a database
+        and GET - is used to while loading some page with query parameters...
+      here we wannna submit some data in a database so we will use POST here okaayyy boyyy!!!-->
+       <h2>From</h2>  
+      <div class="form-control">
+          <label for="title">Location</label>
+          <input type="text" id="location" name="location" required />
+        </div>
+        <div class="form-control">
+          <label for="title">Office Name</label>
+          <input type="text" id="officename" name="officename" required />
+        </div>
+        <div class="form-control">
+          <label for="title">Sender Name</label>
+          <input type="text" id="sender" name="sender" required />
+        </div>
+        <div class="form-control">
+          <label for="title">Date Time</label>
+          <input type="datetime-local" id="datetime" name="datetime" required />
+        </div>
+        <h2>To</h2>
+        <div class="form-control">
+          <label for="receiver">Select Receiver</label>
+          <select id="receiver" name="receiver">
+            <% for (const receiver of receivers) { %>
+
+            <option value="<%= receiver.Emp_id %>"><%= receiver.Emp_name %></option>
+
+            <% } %>
+          </select>
+        </div>
+        <div class="form-control">
+          <label for="lettertype">Select Receiver</label>
+          <select id="lettertype" name="lettertype">
+            <% for (const lettertype of lettertypes) { %>
+
+            <option value="<%= lettertype.Letter_id %>"><%= lettertype.Letter_Type %></option>
+
+            <% } %>
+          </select>
+        </div>
+        <button type="submit" class="btn">Add Letter</button>
+       
+      </form>
+    </main>
+  </body>
+</html>
